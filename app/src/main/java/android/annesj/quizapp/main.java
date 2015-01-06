@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class main extends Activity {
@@ -15,33 +16,16 @@ public class main extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button orderButton = (Button)findViewById(R.id.activity_two);
 
-        orderButton.setOnClickListener(new View.OnClickListener(){
+        questions.add(new Question("this statement is false.", "false"));
+        questions.add(new Question("this statement is not true.", "true"));
 
-            @Override
-            public void onClick(View view){
-               finish();
-            }
-        });
+        questionCount = questions.size();
+
+        questionText = (TextView)findViewById(R.id.questionText);
+        falseButton = (Button)findViewById(R.id.falseButton);
+        trueButton = (Button)findViewById(R.id.trueButton);
+
+
         }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }
